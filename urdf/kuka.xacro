@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+
+<robot name="Kuka_LBR_iiwa7_R800" xmlns:xacro="http://wiki.ros.org/xacro">
+    <xacro:include filename="$(find kuka_robot)/urdf/kuka_macro.xacro" />
+
+		<xacro:base_link_macro
+			base_link_name="base_link">
+		</xacro:base_link_macro>
+
+		<xacro:kuka_joint
+			name="v_joint1"
+			type="revolute"
+			parent="base_link"
+			child="v_link1">
+			<origin xyz="0 0 0.1" />
+			<axis xyz="0 0 1"/>
+		</xacro:kuka_joint>
+
+		<xacro:kuka_link name="v_link1">
+			<geometry>
+				<cylinder length="0.2" radius="0.05"/>
+			</geometry>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+		</xacro:kuka_link>
+
+		<xacro:kuka_joint
+			name="h_joint2"
+			type="revolute"
+			parent="v_link1"
+			child="h_link2">
+			<origin xyz="0.05 0 ${0.2 - 0.05}" />
+			<axis xyz="1 0 0"/>
+		</xacro:kuka_joint>
+
+		<xacro:kuka_link name="h_link2">
+			<geometry>
+				<cylinder length="0.2" radius="0.05"/>
+			</geometry>
+			<origin xyz="0 0 0" rpy="0 ${3.14 / 2} 0.0"/>
+		</xacro:kuka_link>
+
+    <xacro:kuka_joint
+			name="v_joint3"
+			type="revolute"
+			parent="h_link2"
+			child="v_link3">
+			<origin xyz="0.15 0 0.05" />
+			<axis xyz="0 0 1"/>
+		</xacro:kuka_joint>
+
+    <xacro:kuka_link name="v_link3">
+			<geometry>
+				<cylinder length="0.2" radius="0.05"/>
+			</geometry>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+		</xacro:kuka_link>
+
+    <xacro:kuka_joint
+			name="h_joint4"
+			type="revolute"
+			parent="v_link3"
+			child="h_link4">
+			<origin xyz="0.05 0 ${0.2 - 0.05}" />
+			<axis xyz="-1 0 0"/>
+		</xacro:kuka_joint>
+
+		<xacro:kuka_link name="h_link4">
+			<geometry>
+				<cylinder length="0.2" radius="0.05"/>
+			</geometry>
+			<origin xyz="${-1 * (0.2 - 0.1)} 0 0" rpy="0 ${3.14 / 2} 0.0"/>
+		</xacro:kuka_link>
+
+    <xacro:kuka_joint
+			name="v_joint5"
+			type="revolute"
+			parent="h_link4"
+			child="v_link5">
+			<origin xyz="-0.25 0 0.05" />
+			<axis xyz="0 0 1"/>
+		</xacro:kuka_joint>
+
+    <xacro:kuka_link name="v_link5">
+			<geometry>
+				<cylinder length="0.2" radius="0.05"/>
+			</geometry>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+		</xacro:kuka_link>
+
+    <xacro:kuka_joint
+			name="h_joint6"
+			type="revolute"
+			parent="v_link5"
+			child="h_link6">
+			<origin xyz="0.05 0 ${0.2 - 0.05}" />
+			<axis xyz="1 0 0"/>
+		</xacro:kuka_joint>
+
+		<xacro:kuka_link name="h_link6">
+			<geometry>
+				<cylinder length="0.2" radius="0.05"/>
+			</geometry>
+			<origin xyz="0 0 0" rpy="0 ${3.14 / 2} 0.0"/>
+		</xacro:kuka_link>
+
+    <xacro:kuka_joint
+			name="v_joint7"
+			type="revolute"
+			parent="h_link6"
+			child="v_link7">
+			<origin xyz="0.15 0 0.05" />
+			<axis xyz="0 0 1"/>
+		</xacro:kuka_joint>
+
+    <xacro:kuka_link name="v_link7">
+			<geometry>
+				<cylinder length="0.2" radius="0.05"/>
+			</geometry>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+		</xacro:kuka_link>
+
+</robot>
